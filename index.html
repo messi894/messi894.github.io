@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día del Amor</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: #d63384;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; 
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            max-width: 90%; 
+            margin: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(to right, #ff6b6b, #ffb6c1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .heart {
+            font-size: 5em;
+            color: red;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        .message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap; 
+        }
+        button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff69b4;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .yes:hover {
+            background-color: #d63384;
+        }
+        .no {
+            background-color: #ccc;
+            color: black;
+            position: relative;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .no:hover {
+            background-color: #ff9a9e;
+            transform: scale(1.1);
+        }
+
+     
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .heart {
+                font-size: 4em;
+            }
+            .message {
+                font-size: 1.2em;
+            }
+            button {
+                padding: 12px 20px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Feliz Día del Amor! 💖</h1>
+        <div class="heart">❤️</div>
+        <p class="message">¿Me quieres? ❤️</p>
+        <div class="buttons">
+            <button class="yes" onclick="showMessage(true)">Sí</button>
+            <button class="no" id="noButton" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+    <script>
+        function moveNoButton() {
+            let button = document.getElementById('noButton');
+            let x = (Math.random() * 300) - 150;
+            let y = (Math.random() * 300) - 150;
+            button.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function showMessage(answer) {
+            if (answer) {
+                document.body.innerHTML = "<h1>¡Sabía que dirías que sí! ❤️</h1><div class='heart'>💖💖💖</div>";
+            }
+        }
+    </script>
+</body>
+</html>
